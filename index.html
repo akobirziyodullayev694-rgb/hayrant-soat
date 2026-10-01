@@ -29,6 +29,18 @@ input:focus{outline:none;border-color:#8fdcb4 !important;box-shadow:0 0 0 3px rg
 }
 </style>
 <style>[hidden]{display:none !important}</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1812636483263412');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1812636483263412&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 <div style="width: 100%; min-height: 100vh; background: #060d0a; color: #e4e9e7; font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; line-height: 1.55; padding-bottom: 140px">
@@ -280,6 +292,7 @@ Buyurtma berish
     }).then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
     .then(function(){
       $('#done-name').textContent = name; $('#done-phone').textContent = phone;
+      if (window.fbq) fbq('track', 'Lead', { content_name: 'Klassik kvars soat', value: total(), currency: 'UZS' });
       $('#form-wrap').hidden = true; $('#done').hidden = false; $('#bar-wrap').hidden = true;
     }).catch(function(){
       showErr('Xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.');
