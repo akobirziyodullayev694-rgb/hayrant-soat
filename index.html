@@ -31,7 +31,7 @@ input:focus{outline:none;border-color:#8fdcb4 !important;box-shadow:0 0 0 3px rg
 <style>[hidden]{display:none !important}</style>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; background: #060d0a; color: #e4e9e7; font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; line-height: 1.55; padding-bottom: 84px">
+<div style="width: 100%; min-height: 100vh; background: #060d0a; color: #e4e9e7; font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; line-height: 1.55; padding-bottom: 140px">
 
 <!-- HEADER -->
 <header style="position: sticky; top: 0; z-index: 20; background: rgba(6,13,10,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid #15241d">
@@ -213,7 +213,7 @@ Buyurtma berish
 
 <!-- MOBILE STICKY BAR -->
 <div id="bar-wrap">
-<div class="hy-mobilebar" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 16px 14px; background: rgba(6,13,10,0.94); backdrop-filter: blur(12px); border-top: 1px solid #1a2c23">
+<div class="hy-mobilebar" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 16px 66px; background: rgba(6,13,10,0.94); backdrop-filter: blur(12px); border-top: 1px solid #1a2c23">
 <div style="max-width: 480px; margin: 0 auto; display: flex; align-items: center; gap: 14px">
 <div style="display: flex; flex-direction: column; line-height: 1.15">
 <span style="font-size: 18px; font-weight: 700; color: #f6f8f7">169 000 so‘m</span>
@@ -230,7 +230,7 @@ Buyurtma berish
 
 <script>
 (function(){
-  var PROMO_END = '2026-10-01T10:00:00+05:00'; // aksiya tugash vaqti
+  var PROMO_END = '2026-10-05T23:59:00+05:00'; // aksiya tugash vaqti
   var PRICE = 169000, DELIVERY = 30000, BOX = 30000;
   var fmt = function(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' '); };
   var $ = function(s){ return document.querySelector(s); };
@@ -242,7 +242,7 @@ Buyurtma berish
   function tick(){
     var left = Math.max(0, end - Date.now()), s = Math.floor(left/1000);
     var p = function(n){ return String(n).padStart(2,'0'); };
-    var txt = p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60);
+    var d = Math.floor(s/86400); var txt = (d ? d+' kun ' : '')+p(Math.floor(s%86400/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60);
     document.querySelectorAll('.js-timer').forEach(function(el){ el.textContent = txt; });
     if (!left) document.querySelectorAll('.js-timer-wrap').forEach(function(el){ el.style.display='none'; });
   }
